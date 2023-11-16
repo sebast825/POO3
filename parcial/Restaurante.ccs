@@ -1,0 +1,110 @@
+using System.Runtime.CompilerServices;
+
+namespace parcial
+{
+   class Restaurante
+   {
+
+      public Menu[] Menues = new Menu[3];
+      int[] CaloriasPorMenu;
+      public void CrearMenues()
+      {
+
+         for (int i = 0; i < Menues.Length; i++)
+
+         {
+            Menu unMenu = new Menu();
+            unMenu.SetCaloriasIngredientes();
+
+            Menues[i] = unMenu;
+         }
+      }
+      public void CostoMenu() { }
+
+      public void MostrarCaloriasMenues()
+      {
+         for (int i = 0; i < Menues.Length; i++)
+         {
+            int cantCalorias = Menues[i].GetCaloriasTotales();
+            Console.WriteLine($"Las Calorias del menu {i + 1} son: {cantCalorias}");
+            
+         }
+      }
+      public void OrdenarCaloriasIngredientes() { }
+
+
+      public void RegistrarCostoMenu(int num)
+      {
+         Console.WriteLine("Graba Precio Menu");
+      }
+
+      public void GustaElPlato()
+      {
+         Console.Write("Le gustó el plato? ");
+      }
+      public Comensal ElegirComensal()
+      {
+         Random random = new Random();
+
+         int numeroRandom = random.Next(1, 4);
+
+         if (numeroRandom == 1)
+         {
+            return new Sedentario();
+
+         }
+         else if (numeroRandom == 2)
+         {
+            return new Nomade();
+         }
+         else
+         {
+            return new Nosedecide();
+         }
+
+      }
+
+      public void RegistrarMenu(int numMenu)
+      {
+         using (StreamWriter escritor = new StreamWriter("wiiiEntendiObjetos.txt", true, System.Text.Encoding.Default))
+
+         {
+
+            escritor.WriteLine($"Precio Menu° {numMenu+1}: ${Menues[numMenu].GetCaloriasTotales()}");
+            escritor.Flush();
+         }
+      }
+
+      public void RegistrarCaloriasMenues()
+      {
+         int[] CaloriasIngredientes = new int[Menues[0].CantIngredientes * 3];
+         int posi = 0;
+         foreach (Menu elemMenu in Menues)
+         {
+            foreach (int calorias in elemMenu.CaloriasPorIngrediente)
+            {
+               CaloriasIngredientes[posi] = calorias;
+               posi++;
+            }
+         }
+         Array.Sort(CaloriasIngredientes);
+
+         using (StreamWriter escritor = new StreamWriter("wiiiEntendiObjetos.txt", true, System.Text.Encoding.Default))
+
+         {
+            escritor.WriteLine("Las Calorias de cada ingrediente son: ");
+
+            foreach (int elem in CaloriasIngredientes)
+            {
+
+               escritor.Write($"{elem} - ");
+
+            }
+            escritor.WriteLine("");
+            escritor.Flush();
+
+         }
+
+      }
+   }
+}

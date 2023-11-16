@@ -1,0 +1,79 @@
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
+
+namespace parcial
+{
+   internal class Menu
+   {
+      public int CantIngredientes { get; } = 5;
+       public int[] CaloriasPorIngrediente;
+
+      public Menu()
+      {
+         CaloriasPorIngrediente = new int[CantIngredientes];
+      }
+
+      public void SetCaloriasIngredientes()
+      {
+         Random random = new Random();
+
+         for (int i = 0; i < this.CaloriasPorIngrediente.Length; i++)
+         {
+
+            int numeroAleatorio = random.Next(200, 601);
+            this.CaloriasPorIngrediente[i] = numeroAleatorio;
+         }
+      }
+      public int GetCaloriasTotales()
+      {
+         int totCalorias = 0;
+         for (int i = 0; i < this.CaloriasPorIngrediente.Length; i++)
+         {
+            //Console.WriteLine(this.CaloriasPorIngrediente[i]);
+            totCalorias += this.CaloriasPorIngrediente[i];
+         }
+
+        // Console.WriteLine(totCalorias);
+         return totCalorias;
+      }
+      public void PrintCaloriasTotales(){
+         Console.WriteLine($"Las calorias del menu son: {this.GetCaloriasTotales()}");
+      }
+      public void Recorrer()
+      {
+         foreach (int elem in CaloriasPorIngrediente)
+         {
+            Console.WriteLine(elem);
+         }
+      }
+   }
+}
+
+
+
+/*
+   interfaz IRestaurante
+      CostoMenu();
+      RegistrarCosteMenu()
+      RegistrarCoste()
+      GustarElPlato()
+
+   clase Menu
+      int CantIngredientes;
+      array int CaloriasIngrediente;
+      calcularCalorias;
+
+
+
+
+   Interfaz IComensal
+      Metabolizar();
+      GustaElPlato();
+      
+      clase Comensal
+         int FactorMetabolico;
+         int NivelCalorico;
+
+         SetFactorMetabolico();
+         SetNivelCalorico();
+*/

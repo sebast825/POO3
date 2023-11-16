@@ -1,0 +1,15 @@
+C:\Users\Sebastian\Desktop\POO\parcial\bin\Debug\net7.0\parcial.exe
+C:\Users\Sebastian\Desktop\POO\parcial\bin\Debug\net7.0\parcial.deps.json
+C:\Users\Sebastian\Desktop\POO\parcial\bin\Debug\net7.0\parcial.runtimeconfig.json
+C:\Users\Sebastian\Desktop\POO\parcial\bin\Debug\net7.0\parcial.dll
+C:\Users\Sebastian\Desktop\POO\parcial\bin\Debug\net7.0\parcial.pdb
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.csproj.AssemblyReference.cache
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.AssemblyInfoInputs.cache
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.AssemblyInfo.cs
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.csproj.CoreCompileInputs.cache
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.dll
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\refint\parcial.dll
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.pdb
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\parcial.genruntimeconfig.cache
+C:\Users\Sebastian\Desktop\POO\parcial\obj\Debug\net7.0\ref\parcial.dll

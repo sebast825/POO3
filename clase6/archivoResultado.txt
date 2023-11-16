@@ -1,0 +1,5 @@
+Holasdasd mundo
+24/09/2023 18:04:07 - OK - 2
+24/09/2023 18:04:11 - ERROR - Attempted to divide by zero.
+24/09/2023 18:37:03 - ERROR - Attempted to divide by zero.
+24/09/2023 18:37:08 - ERROR - Attempted to divide by zero.

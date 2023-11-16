@@ -1,0 +1,61 @@
+<diagram program="umletino" version="15.1"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>621</x><y>252</y><w>189</w><h>108</h></coordinates><panel_attributes>SistemaSolar
+--
+-nombre: String
+-cargaTitak int
+--
++SistemaSolar(String,int)
++crearPlaneta(int) void
++mostrarPlaneta() void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>639</x><y>477</y><w>189</w><h>81</h></coordinates><panel_attributes>MiniSistema
+--
++anillosEspeciales bool
+--
++generarAnillo() void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>351</y><w>27</w><h>144</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1017</x><y>486</y><w>189</w><h>72</h></coordinates><panel_attributes>Planeta
+--
++codigo int
+--
++getCodigo() int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1035</x><y>234</y><w>189</w><h>99</h></coordinates><panel_attributes>Sol
+--
+-id: Long
+--
+#Operation(i: int): int
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>288</y><w>252</w><h>45</h></coordinates><panel_attributes>lt=&lt;-
+m1=1
++centroSistema</panel_attributes><additional_attributes>260;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>315</y><w>234</w><h>234</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=*
+-listaPlaneta</panel_attributes><additional_attributes>10;10;240;240</additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>261</y><w>189</w><h>90</h></coordinates><panel_attributes>Asteroide
+--
+-codiigo int
+-porosidad String
+--
++getCodigo(): int
++especificarPorosidad(String): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>468</x><y>288</y><w>171</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0. 1
+m2=*
++listaAsteroides</panel_attributes><additional_attributes>170;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>621</x><y>0</y><w>189</w><h>171</h></coordinates><panel_attributes>AbstractClass
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>243</x><y>666</y><w>189</w><h>171</h></coordinates><panel_attributes>Album
+--
+-cantidadMaxima: int
+--
++cantidadFiguritas(): int
++agregarFiguritas(Figurita) void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>567</x><y>666</y><w>189</w><h>171</h></coordinates><panel_attributes>Figurita
+--
+-nombre: String
+--
++Figurita(String)
++getNombre(): String
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>423</x><y>736</y><w>162</w><h>45</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0.1
+m2=*
+
++listaFiguritas</panel_attributes><additional_attributes>10;20;160;20</additional_attributes></element></diagram>
