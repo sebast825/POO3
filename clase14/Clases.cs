@@ -56,11 +56,16 @@ namespace clase14
 
    internal abstract class Colegio
    {
-
+      SqlConnection sesion = new SqlConnection();
       protected int calificacionMin { get; set; }
       protected List<Alumno> listaAlumnos = new List<Alumno>();
 
+      public Colegio(int calificacionMin)
+      {
+         sesion.ConnectionString = $"Data Source=DESKTOP-K6LIC36\\MSSQLSERVERDOS ; Integrated Security=SSPI; Initial Catalog=Poo";
 
+         this.calificacionMin = calificacionMin;
+      }
       public void AgregarAlumno(Alumno alumno)
       {
          listaAlumnos.Add(alumno);
@@ -97,10 +102,26 @@ namespace clase14
          }
       }
 
+      public DataTable ListarResultados(string query)
+      {
+         sesion.Open();
+         SqlCommand cmd = new SqlCommand();
+         cmd.Connection = this.sesion; //SqlConnection
+         cmd.CommandText = query; //SP o query
+         cmd.CommandType = CommandType.Text;
+         cmd.CommandTimeout = 1000;
+
+         SqlDataAdapter adaptadorDatos = new SqlDataAdapter();
+         adaptadorDatos.SelectCommand = cmd;
+
+         DataTable miTabla = new DataTable();
+         adaptadorDatos.Fill(miTabla);
+
+         return miTabla;
+      }
       public void Registrar(Alumno alumno)
       {
-         SqlConnection sesion = new SqlConnection();
-         sesion.ConnectionString = $"Data Source=DESKTOP-K6LIC36\\MSSQLSERVERDOS ; Integrated Security=SSPI; Initial Catalog=Poo";
+
          sesion.Open();
          SqlCommand cmd = new SqlCommand();
 
@@ -136,9 +157,9 @@ namespace clase14
 
    internal class ColegioUno : Colegio
    {
-      public ColegioUno(int calificacionMin)
+      public ColegioUno(int calificacionMin) : base(calificacionMin)
       {
-         this.calificacionMin = calificacionMin;
+
       }
       public override void OrdernarAlumnos()
       {
@@ -151,9 +172,9 @@ namespace clase14
    }
    internal class ColegioDos : Colegio
    {
-      public ColegioDos(int calificacionMin)
+      public ColegioDos(int calificacionMin) : base(calificacionMin)
       {
-         this.calificacionMin = calificacionMin;
+
       }
       public override void OrdernarAlumnos()
       {
