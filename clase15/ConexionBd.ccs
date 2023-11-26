@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace clase15
+{
+   internal class ConexionDB
+   {
+      SqlConnection sesion = new SqlConnection();
+
+      public ConexionDB()
+      {
+         sesion.ConnectionString = $"Data Source=DESKTOP-K6LIC36\\MSSQLSERVERDOS ; Integrated Security=SSPI; Initial Catalog=Poo";
+
+      }
+
+      public void Registrar(Pasajero pasajero)
+      {
+
+         sesion.Open();
+         SqlCommand cmd = new SqlCommand();
+
+         cmd.Parameters.Add(new SqlParameter("tipo", SqlDbType.VarChar));
+         cmd.Parameters["tipo"].Value = pasajero.GetTipo();
+         cmd.Parameters.Add(new SqlParameter("monto", SqlDbType.Int));
+         cmd.Parameters["monto"].Value = pasajero.GetUltimoPasaje();
+
+         cmd.Connection = sesion; //SqlConnection
+         cmd.CommandText = "insert into Cobros values (@tipo, @monto)"; //SP o query
+         cmd.CommandType = CommandType.Text;
+         cmd.CommandTimeout = 1000;
+
+         //Muestro la cantidad de filas afectadas por la ejecución de la consulta.
+         //La sentencia ExcecuteNonQuery se puede ejecutar y asignar a una variable.
+         int total = cmd.ExecuteNonQuery();
+         sesion.Close();
+
+      }
+      public void Insertar(List<Pasajero> listaEstudiante, List<Pasajero> listaHabitual)
+      {
+         foreach (Pasajero elem in listaEstudiante)
+         {
+            Registrar(elem);
+         }
+         foreach (Habitual elem in listaHabitual)
+         {
+            Registrar(elem);
+         }
+
+      }
+   }
+
+}
